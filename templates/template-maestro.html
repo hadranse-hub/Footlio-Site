@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucas Moreau — Milieu Offensif · Footlio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+:root {
+  --forest:  #1A3A2A;
+  --green:   #2D6A4F;
+  --sage:    #52B788;
+  --cream:   #FAF8F4;
+  --sand:    #F0EBE1;
+  --ink:     #1C2416;
+  --mid:     #7A8C72;
+  --white:   #FFFFFF;
+  --gold:    #C9A84C;
+}
+body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--ink); overflow-x:hidden; }
+
+/* NAV */
+nav {
+position:fixed; top:0; left:0; right:0; z-index:100;
+display:flex; align-items:center; justify-content:space-between;
+padding:0 56px; height:68px;
+background:rgba(250,248,244,0.92); backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(42,106,79,0.1);
+}
+.nav-brand { font-family:‘Playfair Display’,serif; font-size:20px; color:var(–ink); }
+.nav-brand span { color:var(–green); font-style:italic; }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a { font-size:13px; color:var(–mid); text-decoration:none; font-weight:500; transition:color 0.2s; }
+.nav-links a:hover { color:var(–ink); }
+.nav-cta {
+background:var(–forest) !important; color:var(–white) !important;
+padding:10px 22px !important; border-radius:100px !important;
+font-size:13px !important; font-weight:500 !important;
+}
+
+/* HERO */
+.hero {
+min-height:100vh; padding-top:68px;
+display:grid; grid-template-columns:5fr 4fr;
+}
+.hero-left {
+padding:80px 64px 80px 56px;
+display:flex; flex-direction:column; justify-content:center;
+position:relative;
+}
+.hero-left::after {
+content:’’;
+position:absolute; right:0; top:10%; bottom:10%;
+width:1px; background:rgba(42,106,79,0.15);
+}
+
+.hero-tag {
+display:inline-flex; align-items:center; gap:10px;
+font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase;
+color:var(–sage); margin-bottom:32px;
+animation:fadeUp 0.7s ease both;
+}
+.tag-leaf { font-size:14px; }
+
+.hero-name {
+font-family:‘Playfair Display’,serif; font-weight:900;
+font-size:clamp(56px, 6vw, 88px);
+line-height:1.0; letter-spacing:-2px; margin-bottom:8px;
+animation:fadeUp 0.7s 0.1s ease both;
+}
+.hero-name .first { display:block; }
+.hero-name .last { display:block; color:var(–green); font-style:italic; }
+
+.hero-pos-line {
+display:flex; align-items:center; gap:16px;
+font-size:14px; color:var(–mid); font-weight:400;
+letter-spacing:0.5px; margin-bottom:48px;
+animation:fadeUp 0.7s 0.2s ease both;
+}
+.pos-sep { width:32px; height:1px; background:var(–sage); }
+
+.hero-bio {
+font-size:17px; font-weight:300; color:var(–mid);
+line-height:1.8; max-width:480px; margin-bottom:48px;
+font-family:‘Playfair Display’,serif; font-style:italic;
+animation:fadeUp 0.7s 0.3s ease both;
+}
+
+.hero-stats-row {
+display:flex; gap:0;
+border:1px solid rgba(42,106,79,0.2);
+margin-bottom:48px; overflow:hidden; border-radius:12px;
+animation:fadeUp 0.7s 0.4s ease both;
+}
+.hs { flex:1; padding:20px 16px; text-align:center; border-right:1px solid rgba(42,106,79,0.15); }
+.hs:last-child { border-right:none; }
+.hs:hover { background:var(–sand); }
+.hs-val { font-family:‘Playfair Display’,serif; font-size:36px; font-weight:700; color:var(–forest); line-height:1; }
+.hs-label { font-size:11px; color:var(–mid); text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
+
+.hero-btns { display:flex; gap:14px; animation:fadeUp 0.7s 0.5s ease both; }
+.btn-forest {
+background:var(–forest); color:var(–white);
+padding:14px 32px; border-radius:100px;
+font-size:14px; font-weight:500; text-decoration:none;
+transition:all 0.25s; display:inline-flex; align-items:center; gap:8px;
+}
+.btn-forest:hover { background:var(–green); transform:translateY(-2px); }
+.btn-line {
+border:1.5px solid rgba(26,58,42,0.25); color:var(–ink);
+padding:14px 28px; border-radius:100px;
+font-size:14px; font-weight:500; text-decoration:none;
+transition:all 0.2s;
+}
+.btn-line:hover { border-color:var(–green); color:var(–green); }
+
+/* HERO RIGHT */
+.hero-right {
+background:var(–forest);
+display:flex; align-items:center; justify-content:center;
+position:relative; overflow:hidden;
+padding:48px 36px;
+}
+.hero-right::before {
+content:’’; position:absolute;
+top:-100px; left:-100px;
+width:400px; height:400px;
+background:radial-gradient(circle, rgba(82,183,136,0.15), transparent 70%);
+}
+.profile-card {
+background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+border-radius:24px; padding:40px 32px;
+width:100%; max-width:320px;
+position:relative; z-index:1;
+backdrop-filter:blur(10px);
+}
+.pc-avatar {
+width:72px; height:72px; border-radius:50%;
+background:linear-gradient(135deg, var(–sage), var(–green));
+display:flex; align-items:center; justify-content:center;
+font-size:32px; margin-bottom:20px;
+border:3px solid rgba(255,255,255,0.15);
+}
+.pc-name { font-family:‘Playfair Display’,serif; font-size:20px; color:var(–white); font-weight:700; margin-bottom:4px; }
+.pc-sub { font-size:13px; color:rgba(255,255,255,0.45); margin-bottom:28px; }
+.pc-divider { height:1px; background:rgba(255,255,255,0.08); margin-bottom:24px; }
+.pc-detail { display:flex; flex-direction:column; gap:14px; margin-bottom:28px; }
+.pc-row { display:flex; justify-content:space-between; align-items:center; }
+.pc-row-label { font-size:12px; color:rgba(255,255,255,0.4); }
+.pc-row-val { font-size:13px; font-weight:500; color:var(–white); }
+.pc-badge {
+display:flex; align-items:center; gap:8px;
+background:rgba(82,183,136,0.15); border:1px solid rgba(82,183,136,0.3);
+border-radius:8px; padding:10px 14px;
+font-size:12px; color:var(–sage); font-weight:500;
+}
+.pc-badge-dot { width:6px; height:6px; background:var(–sage); border-radius:50%; }
+
+/* QUALITIES */
+.qualities { padding:100px 56px; background:var(–sand); }
+.q-header { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:64px; }
+.q-title { font-family:‘Playfair Display’,serif; font-size:48px; font-weight:900; line-height:1.1; letter-spacing:-1px; }
+.q-title em { color:var(–green); font-style:italic; }
+.q-intro { font-size:16px; color:var(–mid); font-weight:300; line-height:1.7; }
+
+.q-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.q-card {
+background:var(–white); border:1px solid rgba(42,106,79,0.1);
+border-radius:16px; padding:32px 28px;
+transition:all 0.3s;
+}
+.q-card:hover { transform:translateY(-6px); box-shadow:0 20px 48px rgba(26,58,42,0.1); border-color:var(–sage); }
+.q-icon { font-size:36px; margin-bottom:16px; }
+.q-name { font-family:‘Playfair Display’,serif; font-weight:700; font-size:20px; margin-bottom:8px; }
+.q-desc { font-size:14px; color:var(–mid); line-height:1.6; font-weight:300; }
+.q-bar { height:3px; background:var(–sand); border-radius:2px; margin-top:20px; overflow:hidden; }
+.q-bar-fill { height:100%; background:var(–sage); border-radius:2px; animation:barW 1.5s ease both; }
+@keyframes barW { from{width:0} }
+
+/* PARCOURS */
+.parcours { padding:100px 56px; background:var(–cream); }
+.parcours-grid { display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start; margin-top:56px; }
+.timeline { display:flex; flex-direction:column; gap:0; }
+.tl-item {
+display:flex; gap:20px; padding:28px 0;
+border-bottom:1px solid rgba(42,106,79,0.1);
+transition:all 0.2s; cursor:default;
+}
+.tl-item:last-child { border-bottom:none; }
+.tl-item:hover .tl-year { color:var(–green); }
+.tl-year {
+font-family:‘Playfair Display’,serif; font-size:22px;
+font-weight:700; color:rgba(26,58,42,0.25);
+min-width:80px; transition:color 0.2s;
+}
+.tl-content {}
+.tl-club { font-size:16px; font-weight:500; color:var(–ink); margin-bottom:3px; }
+.tl-details { font-size:13px; color:var(–mid); font-weight:300; }
+
+.parcours-photo {
+background:var(–forest); border-radius:20px;
+padding:48px 40px; color:var(–white); position:relative; overflow:hidden;
+}
+.parcours-photo::before {
+content:’’; position:absolute; top:-60px; right:-60px;
+width:240px; height:240px;
+background:radial-gradient(circle, rgba(82,183,136,0.2), transparent 70%);
+}
+.pp-quote {
+font-family:‘Playfair Display’,serif; font-style:italic;
+font-size:24px; line-height:1.5; color:rgba(255,255,255,0.9);
+margin-bottom:32px; position:relative; z-index:1;
+}
+.pp-quote::before { content:’”’; font-size:80px; color:var(–sage); opacity:0.3; position:absolute; top:-20px; left:-16px; }
+.pp-author { font-size:13px; color:rgba(255,255,255,0.4); position:relative; z-index:1; }
+
+/* CONTACT */
+.contact-s { padding:100px 56px; background:var(–forest); }
+.contact-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.ct-title { font-family:‘Playfair Display’,serif; font-size:48px; font-weight:900; color:var(–white); letter-spacing:-1px; line-height:1.1; margin-bottom:20px; }
+.ct-title em { color:var(–sage); font-style:italic; }
+.ct-sub { font-size:16px; color:rgba(255,255,255,0.5); font-weight:300; line-height:1.7; }
+.ct-form { display:flex; flex-direction:column; gap:14px; }
+.ct-input {
+background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+color:var(–white); padding:14px 18px;
+font-family:‘DM Sans’,sans-serif; font-size:14px;
+border-radius:8px; outline:none; transition:border-color 0.2s;
+}
+.ct-input::placeholder { color:rgba(255,255,255,0.3); }
+.ct-input:focus { border-color:var(–sage); }
+.ct-textarea { height:100px; resize:none; }
+.ct-btn {
+background:var(–sage); color:var(–forest);
+border:none; padding:15px; border-radius:100px;
+font-family:‘DM Sans’,sans-serif; font-size:15px; font-weight:600;
+cursor:pointer; transition:all 0.2s;
+}
+.ct-btn:hover { background:#70CC9F; transform:translateY(-2px); }
+
+footer {
+background:var(–ink); padding:28px 56px;
+display:flex; justify-content:space-between; align-items:center;
+}
+.ft-brand { font-family:‘Playfair Display’,serif; font-size:18px; color:var(–white); }
+.ft-brand span { color:var(–sage); font-style:italic; }
+.ft-info { font-size:12px; color:rgba(255,255,255,0.3); }
+.ft-footlio { font-size:12px; color:rgba(255,255,255,0.3); }
+.ft-footlio a { color:var(–sage); text-decoration:none; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(28px); transition:all 0.7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+</style>
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Foot<span>lio</span></div>
+  <ul class="nav-links">
+    <li><a href="#qualites">Qualités</a></li>
+    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="mailto:lucas@footlio.fr" class="nav-cta">Me contacter</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag"><span class="tag-leaf">🌿</span> Milieu Offensif · Créatif</div>
+    <h1 class="hero-name">
+      <span class="first">Lucas</span>
+      <span class="last">Moreau</span>
+    </h1>
+    <div class="hero-pos-line">
+      <span>FC Lyon U21</span>
+      <span class="pos-sep"></span>
+      <span>20 ans</span>
+      <span class="pos-sep"></span>
+      <span>Saison 2024–25</span>
+    </div>
+    <p class="hero-bio">
+      "Un milieu qui voit le jeu avant les autres. La passe décisive, le dribble au bon moment — c'est mon langage."
+    </p>
+    <div class="hero-stats-row">
+      <div class="hs"><div class="hs-val">18</div><div class="hs-label">Passes D.</div></div>
+      <div class="hs"><div class="hs-val">12</div><div class="hs-label">Buts</div></div>
+      <div class="hs"><div class="hs-val">89%</div><div class="hs-label">Passes réussies</div></div>
+      <div class="hs"><div class="hs-val">28</div><div class="hs-label">Matchs</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-forest">Prendre contact →</a>
+      <a href="#parcours" class="btn-line">Mon parcours</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="profile-card">
+      <div class="pc-avatar">⚽</div>
+      <div class="pc-name">Lucas Moreau</div>
+      <div class="pc-sub">Milieu offensif · FC Lyon U21</div>
+      <div class="pc-divider"></div>
+      <div class="pc-detail">
+        <div class="pc-row"><span class="pc-row-label">Âge</span><span class="pc-row-val">20 ans</span></div>
+        <div class="pc-row"><span class="pc-row-label">Pied fort</span><span class="pc-row-val">Gauche</span></div>
+        <div class="pc-row"><span class="pc-row-label">Taille</span><span class="pc-row-val">178 cm</span></div>
+        <div class="pc-row"><span class="pc-row-label">Nationalité</span><span class="pc-row-val">🇫🇷 Française</span></div>
+        <div class="pc-row"><span class="pc-row-label">Contrat</span><span class="pc-row-val">Libre en juin 2025</span></div>
+      </div>
+      <div class="pc-badge"><span class="pc-badge-dot"></span> Disponible pour essai</div>
+    </div>
+  </div>
+</section>
+
+<section class="qualities" id="qualites">
+  <div class="q-header">
+    <div class="reveal">
+      <h2 class="q-title">Mes points <em>forts.</em></h2>
+    </div>
+    <p class="q-intro reveal">Ce qui me définit sur et en dehors du terrain — les qualités que je mets au service de mon équipe chaque match.</p>
+  </div>
+  <div class="q-grid">
+    <div class="q-card reveal">
+      <div class="q-icon">👁️</div>
+      <div class="q-name">Vision du jeu</div>
+      <div class="q-desc">Capacité à anticiper les mouvements et trouver la passe avant l'adversaire.</div>
+      <div class="q-bar"><div class="q-bar-fill" style="width:95%"></div></div>
+    </div>
+    <div class="q-card reveal" style="transition-delay:0.1s">
+      <div class="q-icon">⚡</div>
+      <div class="q-name">Technique balle au pied</div>
+      <div class="q-desc">Contrôle, dribble en espace réduit, changement de rythme — une palette complète.</div>
+      <div class="q-bar"><div class="q-bar-fill" style="width:88%; animation-delay:0.2s"></div></div>
+    </div>
+    <div class="q-card reveal" style="transition-delay:0.2s">
+      <div class="q-icon">🎯</div>
+      <div class="q-name">Précision des passes</div>
+      <div class="q-desc">89% de passes réussies cette saison, dont 18 décisives sur les dernières 28 rencontres.</div>
+      <div class="q-bar"><div class="q-bar-fill" style="width:89%; animation-delay:0.4s"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="parcours" id="parcours">
+  <h2 class="section-title reveal" style="font-family:'Playfair Display',serif; font-size:48px; font-weight:900; letter-spacing:-1px;">Mon parcours</h2>
+  <div class="parcours-grid">
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-year">2025</div>
+        <div class="tl-content">
+          <div class="tl-club">FC Lyon U21</div>
+          <div class="tl-details">Milieu offensif · 28 matchs · 12 buts · 18 pd</div>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="transition-delay:0.1s">
+        <div class="tl-year">2023</div>
+        <div class="tl-content">
+          <div class="tl-club">AS Lyon U19</div>
+          <div class="tl-details">Capitaine · Finaliste Coupe Régionale</div>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="transition-delay:0.2s">
+        <div class="tl-year">2021</div>
+        <div class="tl-content">
+          <div class="tl-club">AS Lyon U17</div>
+          <div class="tl-details">Meilleur passeur du championnat DH</div>
+        </div>
+      </div>
+      <div class="tl-item reveal" style="transition-delay:0.3s">
+        <div class="tl-year">2019</div>
+        <div class="tl-content">
+          <div class="tl-club">Centre de Formation Lyon</div>
+          <div class="tl-details">Intégration à 14 ans · détecté en Rhône-Alpes</div>
+        </div>
+      </div>
+    </div>
+    <div class="parcours-photo reveal" style="transition-delay:0.2s">
+      <div class="pp-quote">Le football c'est 90% de vision et 10% de jambes. Je travaille les deux.</div>
+      <div class="pp-author">— Lucas Moreau, FC Lyon U21</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-s" id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <h2 class="ct-title">Envie de me <em>voir jouer ?</em></h2>
+      <p class="ct-sub">Je suis disponible pour un essai, un prêt ou un transfert. Répondez-moi et on s'organise rapidement.</p>
+    </div>
+    <div class="reveal" style="transition-delay:0.1s">
+      <div class="ct-form">
+        <input type="text" placeholder="Votre nom / Club" class="ct-input">
+        <input type="email" placeholder="Email" class="ct-input">
+        <textarea placeholder="Votre message…" class="ct-input ct-textarea"></textarea>
+        <button class="ct-btn">Envoyer le message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-brand">Foot<span>lio</span></div>
+  <div class="ft-info">Lucas Moreau · lucas.moreau@email.com · +33 6 XX XX XX XX</div>
+  <div class="ft-footlio">Site créé par <a href="#">Footlio.fr</a></div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'), i*80); obs.unobserve(e.target); } });
+}, { threshold:0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
