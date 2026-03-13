@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footlio — Le terrain t'a vu. Internet aussi.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & BASE */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --ink:     #0B0F1A;
+            --ink2:    #1E2740;
+            --blue:    #1246E6;
+            --blue2:   #0A35C4;
+            --ice:     #F0F4FF;
+            --smoke:   #F7F8FC;
+            --mist:    #E8ECF8;
+            --gold:    #E8A020;
+            --white:   #FFFFFF;
+            --mid:     #6B7499;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--white);
+            color: var(--ink);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 56px;
+            height: 72px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--mist);
+        }
+
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo-text {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--ink);
+            letter-spacing: -0.5px;
+        }
+        .nav-logo-text span { color: var(--blue); }
+
+        .nav-links {
+            display: flex; align-items: center; gap: 36px; list-style: none;
+        }
+        .nav-links a {
+            font-size: 14px; font-weight: 500; color: var(--mid);
+            text-decoration: none; letter-spacing: 0.2px;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--ink); }
+
+        .nav-btn {
+            background: var(--ink) !important;
+            color: var(--white) !important;
+            padding: 10px 22px !important;
+            border-radius: 100px !important;
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            text-decoration: none;
+            transition: all 0.2s !important;
+        }
+        .nav-btn:hover { background: var(--blue) !important; transform: translateY(-1px); }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 72px 0 0;
+            overflow: hidden;
+        }
+
+        .hero-left {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 80px 64px 80px 56px;
+            position: relative;
+        }
+
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--ice);
+            border: 1px solid var(--mist);
+            border-radius: 100px;
+            padding: 6px 14px;
+            font-size: 12px; font-weight: 600; color: var(--blue);
+            letter-spacing: 0.5px; text-transform: uppercase;
+            margin-bottom: 36px;
+            width: fit-content;
+            animation: fadeUp 0.7s ease both;
+        }
+        .tag-dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; animation: blink 2s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        .hero-h1 {
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            font-size: clamp(52px, 5.5vw, 80px);
+            line-height: 1.0;
+            letter-spacing: -3px;
+            margin-bottom: 28px;
+            animation: fadeUp 0.7s 0.08s ease both;
+        }
+        .hero-h1 em { font-style: italic; color: var(--blue); }
+
+        .hero-sub {
+            font-size: 17px; font-weight: 300; color: var(--mid);
+            line-height: 1.7; max-width: 420px;
+            margin-bottom: 48px;
+            animation: fadeUp 0.7s 0.16s ease both;
+        }
+        .hero-sub strong { color: var(--ink); font-weight: 500; }
+
+        .hero-actions {
+            display: flex; align-items: center; gap: 20px;
+            animation: fadeUp 0.7s 0.24s ease both;
+        }
+
+        .btn-main {
+            background: var(--blue);
+            color: var(--white);
+            padding: 15px 32px;
+            border-radius: 100px;
+            font-size: 15px; font-weight: 600;
+            text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: all 0.25s;
+        }
+        .btn-main:hover { background: var(--blue2); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(18,70,230,0.25); }
+
+        .btn-ghost {
+            font-size: 14px; font-weight: 500; color: var(--mid);
+            text-decoration: none; display: flex; align-items: center; gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .hero-proof {
+            display: flex; align-items: center; gap: 16px;
+            margin-top: 56px; padding-top: 32px;
+            border-top: 1px solid var(--mist);
+            animation: fadeUp 0.7s 0.32s ease both;
+        }
+        .proof-avatars { display: flex; }
+        .proof-avatar {
+            width: 32px; height: 32px; border-radius: 50%;
+            border: 2px solid var(--white);
+            margin-left: -8px; background: var(--blue);
+            display: flex; align-items: center; justify-content: center; font-size: 13px;
+        }
+        .proof-avatar:first-child { margin-left: 0; }
+        .proof-text { font-size: 13px; color: var(--mid); line-height: 1.4; }
+
+        /* ── HERO RIGHT ── */
+        .hero-right {
+            background: var(--ink);
+            position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hero-right::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 60% 60% at 70% 30%, rgba(18,70,230,0.35) 0%, transparent 60%);
+        }
+
+        .float-card {
+            position: absolute; z-index: 3;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px; padding: 16px 20px;
+            backdrop-filter: blur(10px); color: var(--white);
+        }
+        .fc-1 { top: 20%; left: 8%; animation: floatA 6s ease-in-out infinite; }
+        .fc-2 { bottom: 22%; right: 8%; animation: floatB 7s ease-in-out infinite; }
+        @keyframes floatA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+        @keyframes floatB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
+
+        .fc-label { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 6px; }
+        .fc-val { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 700; }
+        .fc-row { display: flex; align-items: center; gap: 10px; }
+        .fc-dot { width: 8px; height: 8px; background: #4ADE80; border-radius: 50%; }
+
+        /* ── STATS BAR ── */
+        .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--mist); border-bottom: 1px solid var(--mist); }
+        .stat-item { padding: 40px 32px; border-right: 1px solid var(--mist); }
+        .stat-num { font-family: 'Fraunces', serif; font-weight: 900; font-size: 42px; color: var(--ink); }
+        .stat-num span { color: var(--blue); }
+        .stat-desc { font-size: 13px; color: var(--mid); margin-top: 6px; }
+
+        /* ── OFFRES ── */
+        .offres-section { padding: 120px 56px; background: var(--smoke); }
+        .offres-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 72px; }
+        .section-h2 { font-family: 'Fraunces', serif; font-size: clamp(36px, 4vw, 54px); font-weight: 900; line-height: 1.1; }
+        .section-h2 em { font-style: italic; color: var(--blue); }
+        .offres-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        
+        .offre { background: var(--white); padding: 44px 36px; border-radius: 24px; border: 1px solid var(--mist); transition: all 0.3s; }
+        .offre:hover { transform: translateY(-5px); border-color: var(--blue); }
+        .offre.featured { background: var(--ink); color: var(--white); border: none; }
+        .offre-badge { display: inline-block; background: var(--gold); color: var(--ink); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 100px; margin-bottom: 20px; }
+        .offre-name { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+        .offre-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 32px; }
+        .offre-price-val { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 900; }
+        
+        .offre-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+        .offre-list li { font-size: 13px; color: var(--mid); display: flex; gap: 10px; }
+        .offre.featured .offre-list li { color: rgba(255,255,255,0.6); }
+
+        .offre-btn { display: block; width: 100%; padding: 13px; border-radius: 100px; text-align: center; text-decoration: none; font-size: 14px; font-weight: 600; border: 1.5px solid var(--mist); color: var(--ink); transition: all 0.2s; }
+        .offre.featured .offre-btn { background: var(--blue); color: var(--white); border: none; }
+
+        /* ── PROCESS ── */
+        .process-section { padding: 120px 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .process-step { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--mist); }
+        .step-n { width: 40px; height: 40px; background: var(--smoke); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--blue); flex-shrink: 0; }
+        .step-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+        .step-desc { font-size: 14px; color: var(--mid); }
+
+        .process-visual { background: var(--ink); border-radius: 28px; padding: 48px; color: var(--white); }
+        .pv-bar-track { height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; margin-top: 8px; overflow: hidden; }
+        .pv-bar-fill { height: 100%; background: var(--blue); border-radius: 10px; }
+
+        /* ── FOOTER ── */
+        footer { padding: 48px 56px; border-top: 1px solid var(--mist); display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo { font-family: 'Fraunces', serif; font-weight: 700; text-decoration: none; color: var(--ink); font-size: 20px; }
+        .footer-logo span { color: var(--blue); }
+
+        /* ANIMATION */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 960px) {
+            nav { padding: 0 24px; }
+            .nav-links { display: none; }
+            .hero { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: 1fr 1fr; }
+            .offres-grid { grid-template-columns: 1fr; }
+            .process-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="nav-logo">
+        <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+            <path d="M6 28 C6 28 8 12 18 8 C26 5 30 10 30 10" stroke="#1246E6" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle cx="30" cy="10" r="4.5" fill="#1246E6"/>
+            <path d="M6 28 L10 24" stroke="#E8A020" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">Foot<span>lio</span></span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#offres">Offres</a></li>
+        <li><a href="#comment">Comment ça marche</a></li>
+        <li><a href="#contact" class="nav-btn">Commencer →</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-left">
+        <div class="hero-tag"><span class="tag-dot"></span> Sites livrés en 48h</div>
+        <h1 class="hero-h1">Ton portfolio.<br>Ton foot.<br><em>Ton futur.</em></h1>
+        <p class="hero-sub">Footlio crée ton site internet <strong>unique</strong> pour que les recruteurs te trouvent — en 48h.</p>
+        <div class="hero-actions">
+            <a href="#offres" class="btn-main">Voir les offres</a>
+            <a href="#comment" class="btn-ghost">En savoir plus →</a>
+        </div>
+    </div>
+    <div class="hero-right">
+        <div class="float-card fc-1">
+            <div class="fc-label">Vues ce mois</div>
+            <div class="fc-val">1 847</div>
+        </div>
+        <div class="float-card fc-2">
+            <div class="fc-row">
+                <div class="fc-dot"></div>
+                <div class="fc-msg">Scout FC Metz a visité ton profil</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="stats-bar">
+    <div class="stat-item">
+        <div class="stat-num">48<span>h</span></div>
+        <div class="stat-desc">Livraison garantie</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-desc">Design unique</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">149<span>€</span></div>
+        <div class="stat-desc">Prix de départ</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num">3<span>×</span></div>
+        <div class="stat-desc">Plus de contacts</div>
+    </div>
+</div>
+
+<section class="offres-section" id="offres">
+    <div class="offres-head">
+        <h2 class="section-h2">Simple.<br><em>Transparent.</em></h2>
+        <p>Un seul paiement. Ton site livré en 48h. Chaque design est construit à la main.</p>
+    </div>
+    <div class="offres-grid">
+        <div class="offre reveal">
+            <div class="offre-name">Starter</div>
+            <div class="offre-price"><span class="offre-price-val">149€</span></div>
+            <ul class="offre-list">
+                <li>✓ Site 3 pages</li>
+                <li>✓ Biographie & Stats</li>
+                <li>✓ Galerie photos</li>
+                <li>✓ Livraison 48h</li>
+            </ul>
+            <a href="#" class="offre-btn">Choisir Starter</a>
+        </div>
+        <div class="offre featured reveal">
+            <div class="offre-badge">⭐ Populaire</div>
+            <div class="offre-name">Pro</div>
+            <div class="offre-price"><span class="offre-price-val">249€</span></div>
+            <ul class="offre-list">
+                <li>✓ Site 6 pages</li>
+                <li>✓ SEO Google</li>
+                <li>✓ Galerie vidéos</li>
+                <li>✓ Fiche PDF Scout</li>
+            </ul>
+            <a href="#" class="offre-btn">Choisir Pro</a>
+        </div>
+        <div class="offre reveal">
+            <div class="offre-name">Élite</div>
+            <div class="offre-price"><span class="offre-price-val">449€</span></div>
+            <ul class="offre-list">
+                <li>✓ Tout le Pro +</li>
+                <li>✓ Blog Actu</li>
+                <li>✓ Réseaux sociaux</li>
+                <li>✓ Maintenance 3 mois</li>
+            </ul>
+            <a href="#" class="offre-btn">Choisir Élite</a>
+        </div>
+    </div>
+</section>
+
+<section class="process-section" id="comment">
+    <div>
+        <h2 class="section-h2">Comment ça marche ?</h2>
+        <div class="process-step">
+            <div class="step-n">1</div>
+            <div>
+                <p class="step-title">Tu remplis le formulaire</p>
+                <p class="step-desc">Stats, photos, poste. 10 minutes max.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="step-n">2</div>
+            <div>
+                <p class="step-title">On crée ton design</p>
+                <p class="step-desc">Pas de template. Du sur-mesure.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="step-n">3</div>
+            <div>
+                <p class="step-title">Tu es en ligne</p>
+                <p class="step-desc">En 48h, les scouts peuvent te trouver.</p>
+            </div>
+        </div>
+    </div>
+    <div class="process-visual">
+        <p style="font-size: 11px; opacity: 0.5; margin-bottom: 20px;">FOOTLIO DASHBOARD</p>
+        <p style="font-size: 24px; font-family: 'Fraunces'; margin-bottom: 30px;">Visibilité en hausse</p>
+        <div>
+            <p style="font-size: 12px; opacity: 0.7;">Vues Scouts (+340%)</p>
+            <div class="pv-bar-track"><div class="pv-bar-fill" style="width: 85%;"></div></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <a href="#" class="footer-logo">Foot<span>lio</span></a>
+    <p>© 2026 Footlio — footlio.fr</p>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
