@@ -29,7 +29,7 @@
             overflow-x: hidden;
         }
 
-        /* ── NAV ── */
+        /* ── NAV CORRIGÉE ── */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
             display: flex; align-items: center; justify-content: space-between;
@@ -70,68 +70,29 @@
         .hero-h1 { font-family: 'Fraunces', serif; font-weight: 900; font-size: clamp(52px, 5.5vw, 80px); line-height: 1.0; letter-spacing: -3px; margin-bottom: 28px; }
         .hero-h1 em { font-style: italic; color: var(--blue); }
         .hero-sub { font-size: 17px; font-weight: 300; color: var(--mid); line-height: 1.7; max-width: 420px; margin-bottom: 48px; }
-        .hero-actions { display: flex; align-items: center; gap: 20px; }
-        .btn-main { background: var(--blue); color: var(--white); padding: 15px 32px; border-radius: 100px; font-size: 15px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.25s; }
-        .btn-main:hover { background: var(--blue2); transform: translateY(-2px); }
-
+        
         .hero-right { background: var(--ink); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .float-card { position: absolute; z-index: 3; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px 20px; backdrop-filter: blur(10px); color: var(--white); }
-        .fc-1 { top: 20%; left: 8%; animation: floatA 6s ease-in-out infinite; }
-        .fc-2 { bottom: 22%; right: 8%; animation: floatB 7s ease-in-out infinite; }
-        @keyframes floatA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-        @keyframes floatB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
-
-        /* ── STATS BAR ── */
-        .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--mist); border-bottom: 1px solid var(--mist); background: white; }
-        .stat-item { padding: 40px 32px; border-right: 1px solid var(--mist); text-align: center; }
-        .stat-num { font-family: 'Fraunces', serif; font-weight: 900; font-size: 42px; color: var(--ink); }
-        .stat-num span { color: var(--blue); }
-        .stat-desc { font-size: 13px; color: var(--mid); margin-top: 6px; }
 
         /* ── OFFRES ── */
         .offres-section { padding: 120px 56px; background: var(--smoke); }
         .offres-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
         .offre { background: var(--white); padding: 44px 36px; border-radius: 24px; border: 1px solid var(--mist); transition: all 0.3s; }
         .offre.featured { background: var(--ink); color: var(--white); border: none; transform: scale(1.05); }
-        .offre-name { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; margin-bottom: 10px; }
         .offre-price-val { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 900; }
-        .offre-list { list-style: none; margin: 30px 0; padding: 0; }
-        .offre-list li { margin-bottom: 12px; font-size: 14px; color: var(--mid); }
-        .offre.featured .offre-list li { color: rgba(255,255,255,0.6); }
-        .offre-btn { display: block; width: 100%; padding: 14px; border-radius: 100px; text-align: center; text-decoration: none; font-weight: 600; border: 1.5px solid var(--mist); color: var(--ink); transition: all 0.2s; }
-        .offre.featured .offre-btn { background: var(--blue); color: var(--white); border: none; }
+        .offre-btn { display: block; width: 100%; padding: 14px; border-radius: 100px; text-align: center; text-decoration: none; font-weight: 600; background: var(--blue); color: var(--white); }
 
-        /* ── PROCESS (VERSION SOMBRE) ── */
+        /* ── PROCESS SOMBRE ── */
         .process-section { 
             padding: 120px 56px; background: var(--ink); color: var(--white); 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
             border-radius: 60px 60px 0 0;
         }
-        .process-step { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .step-n { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--gold); }
-        .step-title { font-family: 'Fraunces', serif; font-size: 20px; color: white; margin-bottom: 5px; }
-        .step-desc { font-size: 14px; color: rgba(255,255,255,0.5); }
+        .step-n { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: 700; margin-bottom: 15px;}
 
-        /* ── TESTIMONIALS ── */
-        .testi-section { padding: 120px 56px; background: var(--white); }
-        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 50px; }
-        .testi-card { background: var(--smoke); padding: 30px; border-radius: 20px; border: 1px solid var(--mist); }
-        .testi-quote { font-family: 'Fraunces', serif; font-style: italic; margin-bottom: 20px; font-size: 16px; }
-
-        /* ── CTA ── */
-        .cta-section { background: var(--blue); color: var(--white); margin: 60px 40px; border-radius: 40px; padding: 80px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        .cta-right { background: var(--white); color: var(--ink); padding: 40px; border-radius: 24px; text-align: center; }
-        .cta-amount { font-family: 'Fraunces', serif; font-size: 56px; font-weight: 900; margin: 15px 0; }
-
-        footer { padding: 40px 56px; border-top: 1px solid var(--mist); display: flex; justify-content: space-between; align-items: center; }
-        
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 960px) {
-            .hero, .process-section, .offres-grid, .testi-grid, .cta-section { grid-template-columns: 1fr; }
-            nav { padding: 0 24px; } .nav-links { display: none; }
-        }
+        /* ── FOOTER DESIGN ── */
+        footer { background: var(--ink); color: white; padding: 80px 56px 40px; border-radius: 60px 60px 0 0; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-links { list-style: none; padding: 0; line-height: 2.5; font-size: 14px; opacity: 0.6; }
+        .footer-links a { color: white; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -141,8 +102,8 @@
         <span class="nav-logo-text">Foot<span>lio</span></span>
     </a>
     <ul class="nav-links">
-        <li><a href="templates.html">Nos Templates</a></li>
-        <li><a href="onboarding.html">Espace Client</a></li>
+        <li><a href="templates/index.html">Nos Templates</a></li>
+        <li><a href="onboarding/index.html">Espace Client</a></li>
         <li><a href="#offres">Offres</a></li>
         <li><a href="login.html" class="nav-btn">Connexion</a></li>
     </ul>
@@ -152,163 +113,98 @@
     <div class="hero-left">
         <div class="hero-tag"><span class="tag-dot"></span> Sites livrés en 48h</div>
         <h1 class="hero-h1">Ton portfolio.<br>Ton foot.<br><em>Ton futur.</em></h1>
-        <p class="hero-sub">Footlio crée ton site internet <strong>unique</strong> pour que les recruteurs te trouvent — en 48h.</p>
+        <p class="hero-sub">Footlio crée ton site internet unique pour que les recruteurs te trouvent.</p>
         <div class="hero-actions">
-            <a href="#offres" class="btn-main">Voir les offres</a>
-            <a href="templates.html" class="btn-ghost" style="text-decoration:none; color:var(--mid); font-weight:500;">Nos templates →</a>
+            <a href="login.html" class="nav-btn" style="padding: 18px 36px !important; font-size: 16px !important;">Obtenir mon site</a>
         </div>
     </div>
     <div class="hero-right">
-        <div class="float-card fc-1">
-            <div class="fc-label">Vues ce mois</div>
-            <div class="fc-val" style="font-size:24px; font-weight:700;">1 847</div>
         </div>
-        <div class="float-card fc-2">
-            <div class="fc-row"><div class="fc-dot" style="width:8px; height:8px; background:#4ADE80; border-radius:50%;"></div><span style="font-size:13px;">Scout FC Metz a visité ton profil</span></div>
-        </div>
-    </div>
 </section>
 
-<div class="stats-bar">
-    <div class="stat-item">
-        <div class="stat-num">48<span>h</span></div>
-        <div class="stat-desc">Délai garanti</div>
-    </div>
-    <div class="stat-item">
-        <div class="stat-num">100<span>%</span></div>
-        <div class="stat-desc">Design unique</div>
-    </div>
-    <div class="stat-item">
-        <div class="stat-num">149<span>€</span></div>
-        <div class="stat-desc">Moins cher qu'une paire</div>
-    </div>
-    <div class="stat-item">
-        <div class="stat-num">3<span>×</span></div>
-        <div class="stat-desc">Plus de visibilité</div>
-    </div>
-</div>
-
 <section class="offres-section" id="offres">
-    <div style="max-width: 600px;">
-        <h2 class="section-h2">Simple. <em>Transparent.</em></h2>
-        <p style="color:var(--mid); margin-top:15px;">Chaque site est construit à la main pour refléter ton identité de joueur.</p>
-    </div>
+    <h2 style="font-family: 'Fraunces'; font-size: 42px; text-align: center;">Prêt pour le <em>terrain</em> ?</h2>
     <div class="offres-grid">
-        <div class="offre reveal">
-            <div class="offre-name">Starter</div>
+        <div class="offre">
+            <h3 style="font-family: 'Fraunces'; margin-bottom: 10px;">Starter</h3>
             <div class="offre-price-val">149€</div>
-            <ul class="offre-list">
-                <li>✓ Site 3 pages pro</li>
-                <li>✓ Stats & Bio</li>
-                <li>✓ Galerie photo</li>
-                <li>✓ Livraison 48h</li>
-            </ul>
+            <p style="margin: 20px 0; color: var(--mid);">L'essentiel pour être visible.</p>
             <a href="login.html" class="offre-btn">Choisir Starter</a>
         </div>
-        <div class="offre featured reveal">
-            <div style="background:var(--gold); color:black; font-size:10px; font-weight:700; padding:4px 10px; border-radius:100px; display:inline-block; margin-bottom:15px;">RECOMMANDÉ</div>
-            <div class="offre-name">Pro</div>
+        <div class="offre featured">
+            <h3 style="font-family: 'Fraunces'; margin-bottom: 10px;">Pro</h3>
             <div class="offre-price-val">249€</div>
-            <ul class="offre-list">
-                <li>✓ Site 6 pages complet</li>
-                <li>✓ SEO Google optimisé</li>
-                <li>✓ Galerie vidéos Highlights</li>
-                <li>✓ Fiche PDF Scout</li>
-            </ul>
+            <p style="margin: 20px 0; opacity: 0.7;">Le pack complet pour recruteurs.</p>
             <a href="login.html" class="offre-btn">Choisir Pro</a>
         </div>
-        <div class="offre reveal">
-            <div class="offre-name">Élite</div>
+        <div class="offre">
+            <h3 style="font-family: 'Fraunces'; margin-bottom: 10px;">Élite</h3>
             <div class="offre-price-val">449€</div>
-            <ul class="offre-list">
-                <li>✓ Tout le Pro +</li>
-                <li>✓ Blog Actu</li>
-                <li>✓ Réseaux Sociaux</li>
-                <li>✓ Maintenance 3 mois</li>
-            </ul>
+            <p style="margin: 20px 0; color: var(--mid);">Accompagnement VIP.</p>
             <a href="login.html" class="offre-btn">Choisir Élite</a>
         </div>
     </div>
 </section>
 
-<section class="process-section" id="comment">
-    <div>
-        <h2 class="section-h2" style="font-size:42px; margin-bottom:40px;">Simple. Rapide.<br><em>Unique.</em></h2>
-        <div class="process-step reveal">
-            <div class="step-n">1</div>
-            <div>
-                <p class="step-title">Remplis le formulaire</p>
-                <p class="step-desc">Tes stats, ton poste, tes photos. 10 minutes max.</p>
+<section class="process-section">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px;">
+        <div>
+            <h2 style="font-family: 'Fraunces'; font-size: 48px; margin-bottom: 40px;">Simple. Rapide.<br><em>Efficace.</em></h2>
+            <div class="step">
+                <div class="step-n">1</div>
+                <h4 style="font-family: 'Fraunces'; font-size: 20px;">Commande ton Pack</h4>
+                <p style="opacity: 0.5; margin-bottom: 30px;">Inscris-toi et choisis ton style.</p>
+            </div>
+            <div class="step">
+                <div class="step-n">2</div>
+                <h4 style="font-family: 'Fraunces'; font-size: 20px;">Envoie tes infos</h4>
+                <p style="opacity: 0.5; margin-bottom: 30px;">Photos, vidéos et statistiques.</p>
+            </div>
+            <div class="step">
+                <div class="step-n">3</div>
+                <h4 style="font-family: 'Fraunces'; font-size: 20px;">Reçois ton site</h4>
+                <p style="opacity: 0.5;">En ligne sous 48h chrono.</p>
             </div>
         </div>
-        <div class="process-step reveal">
-            <div class="step-n">2</div>
-            <div>
-                <p class="step-title">Design sur-mesure</p>
-                <p class="step-desc">On crée ton site de A à Z. Pas de copier-coller.</p>
-            </div>
-        </div>
-        <div class="process-step reveal">
-            <div class="step-n">3</div>
-            <div>
-                <p class="step-title">Mise en ligne 48h</p>
-                <p class="step-desc">Tu es visible par tous les recruteurs du monde.</p>
-            </div>
-        </div>
-    </div>
-    <div style="background:rgba(255,255,255,0.05); padding:40px; border-radius:24px;">
-        <p style="font-size:12px; color:var(--gold); margin-bottom:10px;">DASHBOARD JOUEUR</p>
-        <h3 style="font-family:Fraunces; font-size:28px; margin-bottom:20px;">Tes stats explosent.</h3>
-        <div style="margin-bottom:15px;">
-            <p style="font-size:12px; opacity:0.6;">Visibilité Google (94%)</p>
-            <div style="height:6px; background:rgba(255,255,255,0.1); border-radius:10px; margin-top:5px;">
-                <div style="width:94%; height:100%; background:var(--blue); border-radius:10px;"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="testi-section">
-    <h2 class="section-h2" style="text-align:center;">Ils ont fait <em>confiance</em>.</h2>
-    <div class="testi-grid">
-        <div class="testi-card reveal">
-            <p class="testi-quote">"Grâce à Footlio, j'ai pu envoyer un lien propre aux scouts lors de mon essai à Reims."</p>
-            <p><strong>Karim B.</strong> · Attaquant</p>
-        </div>
-        <div class="testi-card reveal">
-            <p class="testi-quote">"Le site a été livré en moins de 2 jours. Le design est bluffant."</p>
-            <p><strong>Sophie M.</strong> · Mère de Chloé (U17)</p>
-        </div>
-        <div class="testi-card reveal">
-            <p class="testi-quote">"Enfin un service pro pour les joueurs amateurs qui veulent monter."</p>
-            <p><strong>Tom L.</strong> · Défenseur</p>
-        </div>
-    </div>
-</section>
-
-<section class="cta-section reveal">
-    <div>
-        <h2 class="section-h2">Le terrain t'a vu.<br><em>Internet aussi.</em></h2>
-        <p style="margin-top:20px; opacity:0.8;">Rejoins les joueurs qui prennent leur carrière en main.</p>
-    </div>
-    <div class="cta-right">
-        <p style="font-size:12px; font-weight:600; text-transform:uppercase;">À partir de</p>
-        <div class="cta-amount">149€</div>
-        <a href="login.html" class="btn-main" style="width:100%; justify-content:center;">Obtenir mon site</a>
+        <div style="background: rgba(255,255,255,0.05); border-radius: 30px; padding: 40px;">
+             </div>
     </div>
 </section>
 
 <footer>
-    <a href="#" class="footer-logo">Foot<span>lio</span></a>
-    <p style="font-size:13px; color:var(--mid);">© 2026 Footlio — footlio.fr</p>
+    <div class="footer-grid">
+        <div>
+            <h2 class="nav-logo-text" style="color: white; margin-bottom: 20px;">Foot<span>lio</span></h2>
+            <p style="opacity: 0.5; font-size: 14px;">La plateforme n°1 pour booster la carrière des footballeurs.</p>
+        </div>
+        <div>
+            <h4 style="margin-bottom: 20px;">Navigation</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="templates/index.html">Templates</a></li>
+                <li><a href="#offres">Offres</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 style="margin-bottom: 20px;">Support</h4>
+            <ul class="footer-links">
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Mentions Légales</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 style="margin-bottom: 20px;">Réseaux</h4>
+            <ul class="footer-links">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">TikTok</a></li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 60px; opacity: 0.3; font-size: 12px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
+        © 2026 Footlio — Tous droits réservés.
+    </div>
 </footer>
-
-<script>
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
