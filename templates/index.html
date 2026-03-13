@@ -3,205 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footlio — Nos Templates de Profil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Footlio — Nos Templates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        /* Mêmes variables root que l'index */
         :root {
-            --ink:     #0B0F1A;
-            --blue:    #1246E6;
-            --blue2:   #0A35C4;
-            --ice:     #F0F4FF;
-            --smoke:   #F7F8FC;
-            --mist:    #E8ECF8;
-            --gold:    #E8A020;
-            --white:   #FFFFFF;
-            --mid:     #6B7499;
+            --ink: #0B0F1A;
+            --blue: #1246E6;
+            --gold: #E8A020;
+            --white: #FFFFFF;
+            --smoke: #F7F8FC;
+            --mist: #E8ECF8;
         }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--smoke); /* Fond gris très clair pour faire ressortir les cartes */
-            color: var(--ink);
-            overflow-x: hidden;
-        }
-
-        /* ── NAV (Version simplifiée pour les pages internes) ── */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 56px; height: 72px;
-            background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--mist);
-        }
-        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .nav-logo-text { font-family: 'Fraunces', serif; font-weight: 700; font-size: 22px; color: var(--ink); }
-        .nav-logo-text span { color: var(--blue); }
-        .nav-back { font-size: 14px; font-weight: 500; color: var(--blue); text-decoration: none; transition: all 0.2s; }
-        .nav-back:hover { color: var(--blue2); transform: translateX(-3px); }
-
-        /* ── SECTION TEMPLATES ── */
-        .templates-hero {
-            padding: 160px 56px 80px; text-align: center;
-            background: linear-gradient(160deg, #FFFFFF 0%, #F5F7FF 100%);
-        }
-        .templates-h1 {
-            font-family: 'Fraunces', serif; font-weight: 900;
-            font-size: clamp(48px, 5vw, 72px); line-height: 1.0;
-            letter-spacing: -3px; margin-bottom: 24px;
-        }
-        .templates-h1 em { font-style: italic; color: var(--blue); }
-        .templates-p { font-size: 18px; color: var(--mid); max-width: 550px; margin: 0 auto; line-height: 1.6; }
-
-        /* ── GRILLE DE TEMPLATES ── */
-        .templates-grid {
-            padding: 80px 56px;
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 32px; max-width: 1300px; margin: 0 auto;
-        }
-
-        .template-card {
-            background: var(--white);
-            border: 1px solid var(--mist);
-            border-radius: 28px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex; flex-direction: column;
-        }
-        .template-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--blue);
-            box-shadow: 0 30px 60px rgba(11,15,26,0.1);
-        }
-
-        /* Preview Visuelle (Simulée) */
-        .template-visual {
-            height: 280px; width: 100%;
-            display: flex; align-items: center; justify-content: center;
-            position: relative;
-        }
-        .template-title-in-visual {
-            font-family: 'Fraunces', serif; font-weight: 900;
-            font-size: 32px; letter-spacing: -1.5px;
-            color: rgba(255,255,255,0.9);
-            position: relative; z-index: 2;
-        }
-
-        /* Styles spécifiques pour chaque template */
-        .tmpl-striker { background: var(--blue); color: white; }
-        .tmpl-maestro { background: var(--gold); color: black; }
-        .tmpl-guardian { background: var(--ink); color: white; }
-
-        /* Contenu de la carte */
-        .card-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
-        .template-name {
-            font-family: 'Fraunces', serif; font-weight: 700;
-            font-size: 20px; color: var(--ink); margin-bottom: 8px;
-        }
-        .template-description { font-size: 14px; color: var(--mid); line-height: 1.5; margin-bottom: 24px; }
+        body { font-family: 'Outfit', sans-serif; background: var(--white); color: var(--ink); margin: 0; }
         
-        .feature-list { list-style: none; margin-bottom: 32px; }
-        .feature-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--mid); margin-bottom: 8px; }
-        .feature-list li::before { content: '✓'; color: var(--blue); font-weight: 700; }
+        nav { padding: 20px 56px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--mist); }
+        .logo { font-family: 'Fraunces', serif; font-size: 24px; text-decoration: none; color: var(--ink); font-weight: 700; }
+        .logo span { color: var(--blue); }
 
-        .btn-select {
-            display: block; width: 100%; padding: 14px; border-radius: 100px;
-            text-align: center; text-decoration: none; font-size: 14px; font-weight: 600;
-            transition: all 0.2s; border: 1.5px solid var(--mist); color: var(--ink);
-            margin-top: auto;
-        }
-        .template-card:hover .btn-select { background: var(--blue); color: white; border-color: var(--blue); }
+        .hero { padding: 100px 56px; text-align: center; background: linear-gradient(160deg, #FFFFFF 0%, #F5F7FF 100%); }
+        h1 { font-family: 'Fraunces', serif; font-size: clamp(40px, 5vw, 64px); margin-bottom: 20px; letter-spacing: -2px; }
+        h1 em { color: var(--blue); font-style: italic; }
 
-        /* ── FOOTER (Identique à l'index) ── */
-        footer { border-top: 1px solid var(--mist); padding: 48px 56px; display: flex; justify-content: space-between; align-items: center; background: white; margin-top: 80px; }
-        .footer-logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px; color: var(--ink); text-decoration: none; }
-        .footer-logo span { color: var(--blue); }
-        .footer-copy { font-size: 13px; color: var(--mid); }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 60px 56px; max-width: 1300px; margin: 0 auto; }
+        
+        .card { background: var(--white); border: 1px solid var(--mist); border-radius: 32px; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.05); border-color: var(--blue); }
+        
+        .visual { height: 240px; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 32px; font-weight: 900; color: white; }
+        .striker { background: var(--blue); }
+        .maestro { background: var(--gold); color: var(--ink); }
+        .guardian { background: var(--ink); }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 960px) {
-            nav, footer { padding: 0 24px; }
-            .nav-back { display: none; }
-            .templates-hero { padding: 120px 24px 60px; }
-            .templates-grid { grid-template-columns: 1fr; padding: 40px 24px; gap: 24px; }
-        }
+        .content { padding: 32px; }
+        .type { font-size: 12px; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .card-h3 { font-family: 'Fraunces', serif; font-size: 24px; margin-bottom: 12px; }
+        .desc { font-size: 14px; color: #6B7499; line-height: 1.6; margin-bottom: 24px; }
+        
+        .btn-select { display: block; text-align: center; padding: 14px; background: var(--ink); color: white; text-decoration: none; border-radius: 100px; font-weight: 600; font-size: 14px; transition: 0.2s; }
+        .btn-select:hover { background: var(--blue); }
+
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; padding: 40px 24px; } }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="../index.html" class="logo">Foot<span>lio</span></a>
+        <a href="../index.html" style="text-decoration:none; color:var(--ink); font-weight:600; font-size:14px;">← Accueil</a>
+    </nav>
 
-<nav>
-    <a href="../index.html" class="nav-logo">
-        <span class="nav-logo-text">Foot<span>lio</span></span>
-    </a>
-    <a href="../index.html" class="nav-back">← Revenir à l'accueil</a>
-</nav>
-
-<section class="templates-hero">
-    <h1 class="templates-h1">Choisis ton <em>style</em> de jeu.</h1>
-    <p class="templates-p">Tous nos templates sont <strong>uniques</strong>. Ils sont le point de départ de ta création, pas une limite.</p>
-</section>
-
-<div class="templates-grid">
-    <div class="template-card" onclick="window.location.href='../login.html?template=striker'">
-        <div class="template-visual tmpl-striker">
-            <p class="template-title-in-visual">Striker.</p>
-        </div>
-        <div class="card-content">
-            <div class="template-name">Template "Striker"</div>
-            <p class="template-description">Un design agressif, axé sur l'impact visuel immédiat. Idéal pour les attaquants et ailiers qui veulent choquer.</p>
-            <ul class="feature-list">
-                <li>Galerie vidéo "Highlights" immersive</li>
-                <li>Design "Dark Mode" premium</li>
-                <li>Section "Stats d'impact" (buts/minutes)</li>
-                <li>Focus sur tes meilleures photos de match</li>
-            </ul>
-            <a href="../login.html?template=striker" class="btn-select">Choisir Striker</a>
-        </div>
+    <div class="hero">
+        <h1>Choisis ton <em>ADN</em>.</h1>
+        <p>Trois structures pensées pour ton poste et ton style de jeu.</p>
     </div>
 
-    <div class="template-card" onclick="window.location.href='../login.html?template=maestro'">
-        <div class="template-visual tmpl-maestro">
-            <p class="template-title-in-visual" style="color:rgba(0,0,0,0.8)">Maestro.</p>
+    <div class="grid">
+        <div class="card">
+            <div class="visual striker">STRIKER</div>
+            <div class="content">
+                <div class="type">Attaque & Impact</div>
+                <h3 class="card-h3">Le Striker</h3>
+                <p class="desc">Design agressif avec focus sur les buts, la vitesse et tes meilleures vidéos de finition. Pour ceux qui font trembler les filets.</p>
+                <a href="../login.html" class="btn-select">Choisir ce style</a>
+            </div>
         </div>
-        <div class="card-content">
-            <div class="template-name">Template "Maestro"</div>
-            <p class="template-description">L'élégance et la clarté avant tout. Parfait pour les milieux de terrain et les meneurs de jeu tactiques.</p>
-            <ul class="feature-list">
-                <li>Design épuré et sophistiqué</li>
-                <li>Mise en avant de tes "Graphiques de passes"</li>
-                <li>Section "Vision de jeu" (tacles/interceptions)</li>
-                <li>Carte "Derniers clubs" stylisée</li>
-            </ul>
-            <a href="../login.html?template=maestro" class="btn-select">Choisir Maestro</a>
+
+        <div class="card">
+            <div class="visual maestro">MAESTRO</div>
+            <div class="content">
+                <div class="type">Vision & Technique</div>
+                <h3 class="card-h3">Le Maestro</h3>
+                <p class="desc">Design épuré et élégant. Met en avant tes stats de passes, ta vision de jeu et ton intelligence tactique sur le terrain.</p>
+                <a href="../login.html" class="btn-select">Choisir ce style</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="visual guardian">GUARDIAN</div>
+            <div class="content">
+                <div class="type">Force & Sécurité</div>
+                <h3 class="card-h3">Le Guardian</h3>
+                <p class="desc">Solide et imposant. Focus sur tes duels gagnés, tes clean sheets et ta présence physique. Pour les patrons de la défense.</p>
+                <a href="../login.html" class="btn-select">Choisir ce style</a>
+            </div>
         </div>
     </div>
-
-    <div class="template-card" onclick="window.location.href='../login.html?template=guardian'">
-        <div class="template-visual tmpl-guardian">
-            <p class="template-title-in-visual">Guardian.</p>
-        </div>
-        <div class="card-content">
-            <div class="template-name">Template "Guardian"</div>
-            <p class="template-description">Solide comme un roc. Conçu pour les défenseurs centraux et les gardiens qui sécurisent la ligne.</p>
-            <ul class="feature-list">
-                <li>Galerie photo "Défense d'acier"</li>
-                <li>Design "Full Dark" imposant</li>
-                <li>Section "Stats de duel" (aériens/sol)</li>
-                <li>Focus sur ton physique et ta présence</li>
-            </ul>
-            <a href="../login.html?template=guardian" class="btn-select">Choisir Guardian</a>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <a href="../index.html" class="footer-logo">Foot<span>lio</span></a>
-    <p class="footer-copy">© 2026 Footlio — footlio.fr</p>
-</footer>
-
 </body>
 </html>
